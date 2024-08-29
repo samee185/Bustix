@@ -21,6 +21,36 @@ const AuthProvider = ({ children }) => {
     setToken(localStorage.getItem("token"));
     setUser(localStorage.getItem("user"));
   }, []);
+
+  const signUp = async (data) =>{
+    setLoading(true);
+    console.log("API URL:", apiUrl);
+    axios
+    .post(`${apiUrl}/auth/signup`, data,{
+        headers:{
+            "Content-Type": "application/json",
+        }
+
+    })
+    .then((res)=>{
+        console.log(data);
+        setToken(res.data.data.token);
+        setUser(res.data.data.user);
+        localStorage.setItem("token", res.data.data.token);
+        localStorage.setItem("user", res.data.data.user);
+        toast.success("Registration completed");
+        navigate("/")
+        
+    })
+    .catch((err)=>{
+        err?.response
+          ? toast.error(err.response.data.message)
+          : toast.error("An error occured");
+    })
+    .finally(() => {
+        setLoading(false);
+    })
+  };
   const login = async (data) => {
     setLoading(true);
     console.log("API URL:", apiUrl);
@@ -37,7 +67,7 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("token", res.data.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.data.user));
         toast.success("Login Succesful !");
-        navigate("/dashboard");
+        navigate("/");
       })
       .catch((err) => {
         err?.response
@@ -54,13 +84,14 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     toast.success("Logout Successful");
-    navigate("/");
+    navigate("/login");
   };
 
   const values = {
     loading,
     token,
     user,
+    signUp,
     login,
     logout,
   };
