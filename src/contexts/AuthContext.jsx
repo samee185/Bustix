@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     console.log("API URL:", apiUrl);
     axios
-      .post(`${apiUrl}/auth/admin-login`, data, {
+      .post(`${apiUrl}/auth/login`, data, {
         headers: {
           "Content-Type": "application/json",
         },
