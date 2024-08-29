@@ -16,32 +16,38 @@ import { Spinner } from "@material-tailwind/react";
 
 
 const SignUp = () => {
-  const {login, loading } = useAuth();
+  const {signUp, loading } = useAuth();
   const {showPassword, handleShowPassword} = UseShowPassword();
 
     const formik = useFormik({
-        initialValues: {
-            email: "",
-            password: "",
-        },
-        // form validation
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+      },
+      // form validation
 
-        validationSchema:  Yup.object({
-          email: Yup.string()
+      validationSchema: Yup.object({
+        firstName: Yup.string().required("firstname is required"),
+        lastName: Yup.string().required("lastname d is required"),
+        email: Yup.string()
           .email("Invalid email address")
           .required("Email is required"),
-          password: Yup.string()
-          .required("Password is required")
-        }),
-        onSubmit: async (values) => {
-          console.log(values);
-          await login(values)
-        },
-    })
+        password: Yup.string()
+        .required("Password is required"),
+        confirmPassword: Yup.string()
+        .required("confirm Password is required"),
+      }),
+      onSubmit: async (values) => {
+        console.log(values);
+        await login(values);
+      },
+    });
   return (
     <>
       <div className="bg-[rgb(255,244,234)] h-screen flex justify-center py-12 md:py-28 ">
-        <div className="container max-w-screen-lg w-[80%] bg-[rgba(255,255,255)] flex items-center gap-10 lg:gap-20   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
+   +     <div className="container max-w-screen-lg w-[80%] bg-[rgba(255,255,255)] flex items-center gap-10 lg:gap-20   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
           <div className="hidden lg:block lg:basis-1/2 px-4 py-8">
             <img src={authImg} alt="heroimage" className="object-cover" />
           </div>
