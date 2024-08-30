@@ -38,7 +38,8 @@ const SignUp = () => {
           .email("Invalid email address")
           .required("Email is required"),
         password: Yup.string()
-        .required("Password is required"),
+        .required("Password is required")
+        .min(8, "Minimum of 8 characters"),
         confirmPassword: Yup.string()
         .required("confirm Password is required"),
       }),
@@ -50,23 +51,75 @@ const SignUp = () => {
   return (
     <>
       <div className="bg-[rgb(255,244,234)] h-screen flex justify-center py-12 md:py-28 ">
-   +     <div className="container max-w-screen-lg w-[80%] bg-[rgba(255,255,255)] flex items-center gap-10 lg:gap-20   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
+        +{" "}
+        <div className="container max-w-screen-lg w-[80%] bg-[rgba(255,255,255)] flex items-center gap-10 lg:gap-20   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
           <div className="hidden lg:block lg:basis-1/2 px-4 py-8">
             <img src={authImg} alt="heroimage" className="object-cover" />
           </div>
           <div className="basis-full lg:basis-1/2 px-4 py-8">
-            <Card color="transparent" shadow={false} className='w-full p-4 md:p-6'>
-              <Typography variant="h4" color="blue-gray"className='text-center max-w-xs mx-auto'>
-                Admin Dashboard
+            <Card
+              color="transparent"
+              shadow={false}
+              className="w-full p-4 md:p-6"
+            >
+              <Typography
+                variant="h4"
+                color="blue-gray"
+                className="text-center max-w-xs mx-auto"
+              >
+                Bustix Sign Up
               </Typography>
-              <Typography color="gray" className="mt-1 font-normal text-center max-w-xs mx-auto">
-                Login To Continue
+              <Typography
+                color="gray"
+                className="mt-1 font-normal text-center max-w-xs mx-auto"
+              >
+                Fill the Form below to join us !
               </Typography>
               <form
                 onSubmit={formik.handleSubmit}
                 className="mt-8 mb-2 w-full max-w-md mx-auto"
               >
                 <div className="mb-1 flex flex-col gap-6">
+                  <div>
+                    <Typography variant="h6" color="blue-gray" className="mb-3">
+                      First Name
+                    </Typography>
+                    <Input
+                      size="lg"
+                      placeholder="chukwuemeka"
+                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                      labelProps={{
+                        className: "before:content-none after:content-none",
+                      }}
+                      value={formik.values.firstName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      name="firstName"
+                    />
+                    {formik.touched.firstName && formik.errors.firstName && (
+                      <p className="text-red-300">{formik.errors.firstName}</p>
+                    )}
+                  </div>
+                  <div>
+                    <Typography variant="h6" color="blue-gray" className="mb-3">
+                      Last Name
+                    </Typography>
+                    <Input
+                      size="lg"
+                      placeholder="kolawole"
+                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                      labelProps={{
+                        className: "before:content-none after:content-none",
+                      }}
+                      value={formik.values.lastName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      name="lastName"
+                    />
+                    {formik.touched.lastName && formik.errors.lastName && (
+                      <p className="text-red-300">{formik.errors.lastName}</p>
+                    )}
+                  </div>
                   <div>
                     <Typography variant="h6" color="blue-gray" className="mb-3">
                       Email
@@ -124,8 +177,13 @@ const SignUp = () => {
                     )}
                   </div>
                 </div>
-                <Button type="submit" className="mt-6 w-full" fullWidth disabled={loading}>
-                  { loading ?  <Spinner color='gray'/> : "Login" }
+                <Button
+                  type="submit"
+                  className="mt-6 w-full"
+                  fullWidth
+                  disabled={loading}
+                >
+                  {loading ? <Spinner color="gray" /> : "Login"}
                 </Button>
               </form>
             </Card>
@@ -136,4 +194,4 @@ const SignUp = () => {
   );
 }
 
-export default SignUp
+export default SignUp;
