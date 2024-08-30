@@ -25,12 +25,15 @@ const SignUp = () => {
         lastName: "",
         email: "",
         password: "",
+        confirmPassword: ""
       },
       // form validation
 
       validationSchema: Yup.object({
-        firstName: Yup.string().required("firstname is required"),
-        lastName: Yup.string().required("lastname d is required"),
+        firstName: Yup.string()
+        .required("firstname is required"),
+        lastName: Yup.string()
+        .required("lastname d is required"),
         email: Yup.string()
           .email("Invalid email address")
           .required("Email is required"),
@@ -41,7 +44,7 @@ const SignUp = () => {
       }),
       onSubmit: async (values) => {
         console.log(values);
-        await login(values);
+        await signUp(values);
       },
     });
   return (
