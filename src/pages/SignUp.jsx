@@ -1,5 +1,5 @@
-import {FaEye, FaEyeSlash} from 'react-icons/fa';
-import {useFormik } from "formik";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
   Card,
@@ -7,51 +7,46 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from "../contexts/AuthContext";
 
-import authImg from "../assets/AuthPageImage.svg"
+import authImg from "../assets/AuthPageImage.svg";
 
-import UseShowPassword from '../hooks/UseShowPassword';
+import UseShowPassword from "../hooks/UseShowPassword";
 import { Spinner } from "@material-tailwind/react";
 
-
 const SignUp = () => {
-  const {signUp, loading } = useAuth();
-  const {showPassword, handleShowPassword} = UseShowPassword();
+  const { signUp, loading } = useAuth();
+  const { showPassword, handleShowPassword } = UseShowPassword();
 
-    const formik = useFormik({
-      initialValues: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
-      },
-      // form validation
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+    // form validation
 
-      validationSchema: Yup.object({
-        firstName: Yup.string()
-        .required("firstname is required"),
-        lastName: Yup.string()
-        .required("lastname d is required"),
-        email: Yup.string()
-          .email("Invalid email address")
-          .required("Email is required"),
-        password: Yup.string()
-        .required("Password is required")
-        .min(8, "Minimum of 8 characters"),
-        confirmPassword: Yup.string()
-        .required("confirm Password is required"),
-      }),
-      onSubmit: async (values) => {
-        console.log(values);
-        await signUp(values);
-      },
-    });
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+      .required("FirstName is required"),
+      lastName: Yup.string()
+      .required("LastName is required"),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
+      password: Yup.string()
+      .required("Password is required")
+      .min(6, "Minimum of 6 characters"), 
+    }),
+    onSubmit: async (values) => {
+      console.log(values);
+      await signUp(values);
+    },
+  });
   return (
     <>
       <div className="bg-[rgb(255,244,234)] h-screen flex justify-center py-12 md:py-28 ">
-        +{" "}
         <div className="container max-w-screen-lg w-[80%] bg-[rgba(255,255,255)] flex items-center gap-10 lg:gap-20   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
           <div className="hidden lg:block lg:basis-1/2 px-4 py-8">
             <img src={authImg} alt="heroimage" className="object-cover" />
@@ -67,13 +62,13 @@ const SignUp = () => {
                 color="blue-gray"
                 className="text-center max-w-xs mx-auto"
               >
-                Bustix Sign Up
+                Welcome To Bustix
               </Typography>
               <Typography
                 color="gray"
                 className="mt-1 font-normal text-center max-w-xs mx-auto"
               >
-                Fill the Form below to join us !
+                Create Account To Continue
               </Typography>
               <form
                 onSubmit={formik.handleSubmit}
@@ -86,7 +81,7 @@ const SignUp = () => {
                     </Typography>
                     <Input
                       size="lg"
-                      placeholder="chukwuemeka"
+                      placeholder="Emeka"
                       className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                       labelProps={{
                         className: "before:content-none after:content-none",
@@ -106,7 +101,7 @@ const SignUp = () => {
                     </Typography>
                     <Input
                       size="lg"
-                      placeholder="kolawole"
+                      placeholder="Adeola"
                       className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                       labelProps={{
                         className: "before:content-none after:content-none",
@@ -192,6 +187,6 @@ const SignUp = () => {
       </div>
     </>
   );
-}
+};
 
 export default SignUp;
