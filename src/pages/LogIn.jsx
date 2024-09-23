@@ -12,7 +12,7 @@ import {
 import { useAuth } from "../contexts/AuthContext";
 import authImg from "../assets/BustixAuth.jpg";
 import UseShowPassword from "../hooks/UseShowPassword";
-
+import { Link } from "react-router-dom";
 const LogIn = () => {
   const { login, loading } = useAuth();
   const { showPassword, handleShowPassword } = UseShowPassword();
@@ -37,8 +37,7 @@ const LogIn = () => {
   });
   return (
     <>
-      <div className="bg-[rgb(255,244,234)] h-screen flex justify-center py-12 md:py-28 ">
-        <div className="container max-w-screen-lg w-[80%] bg-[rgba(255,255,255)] flex items-center gap-10 lg:gap-20   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
+        <div className="bg-[rgba(255,255,255)] flex items-center lg:gap-10   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
           <div className="hidden lg:block lg:basis-1/2 px-4 py-8">
             <img src={authImg} alt="heroimage" className="object-cover" />
           </div>
@@ -131,11 +130,18 @@ const LogIn = () => {
                 >
                   {loading ? <Spinner color="gray" /> : "Login"}
                 </Button>
+
+                <p className="mt-3">
+                  Don't have an account ?{" "}
+                  <Link to={"/signup"}>
+                    <span className="underline">Register Now</span>
+                  </Link>{" "}
+                </p>
               </form>
             </Card>
           </div>
         </div>
-      </div>
+
     </>
   );
 };

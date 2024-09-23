@@ -9,9 +9,8 @@ import {
   Spinner,
 } from "@material-tailwind/react";
 import { useAuth } from "../contexts/AuthContext";
-
+import { Link } from "react-router-dom";
 import authImg from "../assets/BustixAuth.jpg";
-
 import UseShowPassword from "../hooks/UseShowPassword";
 
 const SignUp = () => {
@@ -179,6 +178,12 @@ const SignUp = () => {
               >
                 {loading ? <Spinner color="gray" /> : "Sign Up"}
               </Button>
+              <p className="mt-3">
+                Already have an account ?{" "}
+                <Link to={"/login"}>
+                  <span className="underline">Log In</span>
+                </Link>{" "}
+              </p>
             </form>
           </Card>
         </div>
