@@ -177,7 +177,7 @@ const SignUp = () => {
                 fullWidth
                 disabled={loading}
               >
-                {loading ? <Spinner color="gray" /> : "Login"}
+                {loading ? <Spinner color="gray" /> : "Sign Up"}
               </Button>
             </form>
           </Card>
