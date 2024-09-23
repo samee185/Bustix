@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { useAuth } from "../contexts/AuthContext";
 
-import authImg from "../assets/AuthPageImage.svg";
+import authImg from "../assets/BustixAuth.jpg";
 
 import UseShowPassword from "../hooks/UseShowPassword";
 import { Spinner } from "@material-tailwind/react";
@@ -46,12 +46,11 @@ const SignUp = () => {
   });
   return (
     <>
-      <div className="bg-[rgb(255,244,234)] h-screen flex justify-center py-12 md:py-28 ">
-        <div className="container max-w-screen-lg w-[80%] bg-[rgba(255,255,255)] flex items-center gap-10 lg:gap-20   rounded-2xl shadow-xl shadow-gray-500 p-6 lg:p-10">
-          <div className="hidden lg:block lg:basis-1/2 px-4 py-8">
+        <div className="bg-[rgba(37,127,230,0.3)] flex items-center lg:gap-10 px-4 lg:px-0">
+          <div className="hidden lg:block lg:basis-1/2">
             <img src={authImg} alt="heroimage" className="object-cover" />
           </div>
-          <div className="basis-full lg:basis-1/2 px-4 py-8">
+          <div className="basis-full lg:basis-1/2 px-4">
             <Card
               color="transparent"
               shadow={false}
@@ -184,7 +183,6 @@ const SignUp = () => {
             </Card>
           </div>
         </div>
-      </div>
     </>
   );
 };
