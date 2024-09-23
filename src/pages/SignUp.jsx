@@ -29,9 +29,9 @@ const SignUp = () => {
 
     validationSchema: Yup.object({
       firstName: Yup.string()
-      .required("FirstName is required"),
+      .required("First Name is required"),
       lastName: Yup.string()
-      .required("LastName is required"),
+      .required("Last Name is required"),
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
@@ -48,7 +48,7 @@ const SignUp = () => {
     <>
         <div className="bg-[rgba(37,127,230,0.3)] flex items-center lg:gap-10 px-4 lg:px-0">
           <div className="hidden lg:block lg:basis-1/2">
-            <img src={authImg} alt="heroimage" className="object-cover" />
+            <img src={authImg} alt="heroimage" className="object-cover h-full" />
           </div>
           <div className="basis-full lg:basis-1/2 px-4">
             <Card
