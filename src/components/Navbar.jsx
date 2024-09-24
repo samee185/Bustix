@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import {
   Navbar,
   Collapse,
@@ -31,68 +31,68 @@ import {
 } from "@heroicons/react/24/solid";
 import logo from "../assets/BustixLogo.png"
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+
 
 const navListMenuItems = [
   {
     title: "Products",
     description: "Find the perfect solution for your needs.",
-    icon: SquaresPlusIcon,
+    icon: <SquaresPlusIcon />,
   },
   {
     title: "About Us",
     description: "Meet and learn about our dedication",
-    icon: UserGroupIcon,
+    icon: <UserGroupIcon />,
   },
   {
     title: "Blog",
     description: "Find the perfect solution for your needs.",
-    icon: Bars4Icon,
+    icon: <Bars4Icon />,
   },
   {
     title: "Services",
     description: "Learn how we can help you achieve your goals.",
-    icon: SunIcon,
+    icon: <SunIcon />,
   },
   {
     title: "Support",
     description: "Reach out to us for assistance or inquiries",
-    icon: GlobeAmericasIcon,
+    icon: <GlobeAmericasIcon />,
   },
   {
     title: "Contact",
     description: "Find the perfect solution for your needs.",
-    icon: PhoneIcon,
+    icon: <PhoneIcon />,
   },
   {
     title: "News",
     description: "Read insightful articles, tips, and expert opinions.",
-    icon: NewspaperIcon,
+    icon: <NewspaperIcon />,
   },
   {
     title: "Products",
     description: "Find the perfect solution for your needs.",
-    icon: RectangleGroupIcon,
+    icon: <RectangleGroupIcon />,
   },
   {
     title: "Special Offers",
     description: "Explore limited-time deals and bundles",
-    icon: TagIcon,
+    icon: <TagIcon />,
   },
 ];
 
 const NavListMenu = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const renderItems = navListMenuItems.map(
     ({ icon, title, description }, key) => (
       <a href="#" key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
-            {" "}
-            {React.createElement(icon, {
-              strokeWidth: 2,
-              className: "h-6 text-gray-900 w-6",
-            })}
+           <div className="w-6 h-6 text-gray-900">
+            {icon}
+           </div>
           </div>
           <div>
             <Typography
@@ -187,9 +187,10 @@ const NavList = () => {
   );
 }
 const NavBar = () => {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const { token, user, logout } = useAuth();
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -216,14 +217,13 @@ const NavBar = () => {
           <div className="hidden gap-2 lg:flex">
             <Link to={"/login"}>
               <Button variant="text" size="sm" color="blue-gray">
-                <UserCircleIcon />
+                {/* <UserCircleIcon /> */}
+                Log In
               </Button>
             </Link>
-            <Link to={"/signup"}>
-              <Button variant="gradient" size="sm">
-                Log Out
-              </Button>
-            </Link>
+            <Button variant="gradient" size="sm" onClick={logout}>
+              Log Out
+            </Button>
           </div>
         ) : (
           <div className="hidden gap-2 lg:flex">
@@ -254,18 +254,31 @@ const NavBar = () => {
       </div>
       <Collapse open={openNav}>
         <NavList />
-        <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          <Link to={"/login"}>
-            <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
-              Log In
+        {token ? (
+          <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
+            <Link to={"/login"}>
+              <Button variant="text" size="sm" color="blue-gray">
+                <UserCircleIcon />
+              </Button>
+            </Link>
+            <Button variant="gradient" size="sm" onClick={logout}>
+              Log Out
             </Button>
-          </Link>
-          <Link to={"/signup"}>
-            <Button variant="gradient" size="sm" fullWidth>
-              Sign Up
-            </Button>
-          </Link>
-        </div>
+          </div>
+        ) : (
+          <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
+            <Link to={"/login"}>
+              <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
+                Log In
+              </Button>
+            </Link>
+            <Link to={"/signup"}>
+              <Button variant="gradient" size="sm" fullWidth>
+                Sign Up
+              </Button>
+            </Link>
+          </div>
+        )}
       </Collapse>
     </Navbar>
   );
