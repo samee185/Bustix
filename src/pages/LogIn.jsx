@@ -49,12 +49,14 @@ const LogIn = () => {
             className="w-full px-4 py-2 md:px-6 md:py-6"
           >
             <div className="flex justify-center mb-8">
-              <div className="flex items-center">
-                <img src={logo} alt="bustixlogo" className="h-24 " />
-                <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgba(4,72,108,0.94)]">
-                  BusTix
-                </span>
-              </div>
+              <Link to={"/"}>
+                <div className="flex items-center">
+                  <img src={logo} alt="bustixlogo" className="h-24 " />
+                  <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgba(4,72,108,0.94)]">
+                    BusTix
+                  </span>
+                </div>
+              </Link>
             </div>
             <form
               onSubmit={formik.handleSubmit}

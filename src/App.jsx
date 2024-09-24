@@ -14,14 +14,14 @@ const App = () => {
     <>
       <Router>
         <AuthProvider>
-              <Routes>
-                <Route path="/" element={<SignUp />} />
-                <Route path="/signup" element={<Home />} />
-                <Route path="/login" element={<LogIn />} />
-                {/* <Route path="/bus" element={<Bus />} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<LogIn />} />
+            {/* <Route path="/bus" element={<Bus />} />
                 <Route path="/profile" element={<Profile />} /> */}
-              </Routes>
-              <ToastContainer />
+          </Routes>
+          <ToastContainer />
         </AuthProvider>
       </Router>
     </>
