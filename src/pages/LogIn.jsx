@@ -38,7 +38,7 @@ const LogIn = () => {
   });
   return (
     <>
-      <div className="bg-[rgba(37,127,230,0.3)] flex items-center lg:gap-10 px-4 lg:px-0 ">
+      <div className="bg-[white] flex items-center lg:gap-10 px-4 lg:px-0 ">
         <div className="hidden lg:block lg:basis-1/2 h-[100vh] overflow-hidden ">
           <img src={authImg} alt="heroimage" className="object-cover" />
         </div>
@@ -48,27 +48,15 @@ const LogIn = () => {
             shadow={false}
             className="w-full px-4 py-2 md:px-6 md:py-6"
           >
-            <div>
+            <div className="flex justify-center mb-8">
               <div className="flex items-center">
-                <img src={logo} alt="bustixlogo" className="h-24" />
-                <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgb(4,72,108)]">
+                <img src={logo} alt="bustixlogo" className="h-24 " />
+                <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgba(4,72,108,0.94)]">
                   BusTix
                 </span>
               </div>
             </div>
-            {/* <Typography
-              variant="h4"
-              color="blue-gray"
-              className="text-center max-w-xs mx-auto"
-            >
-              Welcome to Bustix
-            </Typography> */}
-            <Typography
-              color="gray"
-              className="mt-1 text-[18px] font-bold text-center max-w-xs mx-auto"
-            >
-              Login To Continue
-            </Typography>
+
             <form
               onSubmit={formik.handleSubmit}
               className="mt-8 mb-2 w-full max-w-md mx-auto"
@@ -133,7 +121,7 @@ const LogIn = () => {
               </div>
               <Button
                 type="submit"
-                className="mt-6 w-full"
+                className="mt-6 w-full bg-[rgba(4,72,108,0.94)] "
                 fullWidth
                 disabled={loading}
               >
