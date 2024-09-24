@@ -27,7 +27,10 @@ import {
   SunIcon,
   TagIcon,
   UserGroupIcon,
+  UserCircleIcon
 } from "@heroicons/react/24/solid";
+import logo from "../assets/BustixLogo.png"
+import { Link } from "react-router-dom";
 
 const navListMenuItems = [
   {
@@ -77,7 +80,7 @@ const navListMenuItems = [
   },
 ];
 
-function NavListMenu() {
+const NavListMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
@@ -112,7 +115,7 @@ function NavListMenu() {
   );
 
   return (
-    <React.Fragment>
+    <>
       <Menu
         open={isMenuOpen}
         handler={setIsMenuOpen}
@@ -152,11 +155,11 @@ function NavListMenu() {
       <div className="block lg:hidden">
         <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 
-function NavList() {
+const NavList = () => {
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Typography
@@ -166,7 +169,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4">About</ListItem>
       </Typography>
       <NavListMenu />
       <Typography
@@ -183,8 +186,7 @@ function NavList() {
     </List>
   );
 }
-
-export function NavbarWithMegaMenu() {
+const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -195,27 +197,48 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
+    <Navbar className="mx-auto px-4 py-2">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
-        >
-          Material Tailwind
-        </Typography>
+        <div className="mr-4 cursor-pointer py-1.5 lg:ml-2">
+          <Link to={"/"}>
+            <div className="flex items-center">
+              <img src={logo} alt="bustixlogo" className="h-[90px] " />
+              <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgba(4,72,108,0.94)]">
+                BusTix
+              </span>
+            </div>
+          </Link>
+        </div>
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray">
-            Log In
-          </Button>
-          <Button variant="gradient" size="sm">
-            Sign In
-          </Button>
-        </div>
+        {token ? (
+          <div className="hidden gap-2 lg:flex">
+            <Link to={"/login"}>
+              <Button variant="text" size="sm" color="blue-gray">
+                <UserCircleIcon />
+              </Button>
+            </Link>
+            <Link to={"/signup"}>
+              <Button variant="gradient" size="sm">
+                Log Out
+              </Button>
+            </Link>
+          </div>
+        ) : (
+          <div className="hidden gap-2 lg:flex">
+            <Link to={"/login"}>
+              <Button variant="text" size="sm" color="blue-gray">
+                Log In
+              </Button>
+            </Link>
+            <Link to={"/signup"}>
+              <Button variant="gradient" size="sm">
+                Sign Up
+              </Button>
+            </Link>
+          </div>
+        )}
         <IconButton
           variant="text"
           color="blue-gray"
@@ -223,23 +246,30 @@ export function NavbarWithMegaMenu() {
           onClick={() => setOpenNav(!openNav)}
         >
           {openNav ? (
-            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+            <XMarkIcon className="h-12 w-12" strokeWidth={2} />
           ) : (
-            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+            <Bars3Icon className="h-12 w-12" strokeWidth={2} />
           )}
         </IconButton>
       </div>
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
-            Log In
-          </Button>
-          <Button variant="gradient" size="sm" fullWidth>
-            Sign In
-          </Button>
+          <Link to={"/login"}>
+            <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
+              Log In
+            </Button>
+          </Link>
+          <Link to={"/signup"}>
+            <Button variant="gradient" size="sm" fullWidth>
+              Sign Up
+            </Button>
+          </Link>
         </div>
       </Collapse>
     </Navbar>
   );
 }
+
+
+export default NavBar;
