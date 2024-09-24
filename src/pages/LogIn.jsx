@@ -56,14 +56,16 @@ const LogIn = () => {
                 </span>
               </div>
             </div>
-
             <form
               onSubmit={formik.handleSubmit}
               className="mt-8 mb-2 w-full max-w-md mx-auto"
             >
               <div className="mb-1 flex flex-col gap-6">
                 <div>
-                  <Typography variant="h6" color="blue-gray" className="mb-3">
+                  <Typography
+                    variant="h6"
+                    className="mb-3 text-[rgba(4,72,108,0.94)]"
+                  >
                     Email
                   </Typography>
                   <Input
@@ -83,7 +85,10 @@ const LogIn = () => {
                   )}
                 </div>
                 <div className="relative">
-                  <Typography variant="h6" color="blue-gray" className="mb-3">
+                  <Typography
+                    variant="h6"
+                    className="mb-3 text-[rgba(4,72,108,0.94)]"
+                  >
                     Password
                   </Typography>
                   <Input
