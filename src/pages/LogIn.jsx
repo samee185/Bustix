@@ -9,7 +9,7 @@ import {
   Typography,
   Spinner,
 } from "@material-tailwind/react";
-import logo from "../assets/BustixLogo.jpg";
+import logo from "../assets/BustixLogo.png";
 import { useAuth } from "../contexts/AuthContext";
 import authImg from "../assets/BustixAuth.jpg";
 import UseShowPassword from "../hooks/UseShowPassword";
@@ -39,26 +39,33 @@ const LogIn = () => {
   return (
     <>
       <div className="bg-[rgba(37,127,230,0.3)] flex items-center lg:gap-10 px-4 lg:px-0 ">
-        <div className="hidden lg:block lg:basis-1/2 ">
+        <div className="hidden lg:block lg:basis-1/2 h-[100vh] overflow-hidden ">
           <img src={authImg} alt="heroimage" className="object-cover" />
         </div>
-        <div className="basis-full lg:basis-1/2 px-4 py-8">
-        <img src={logo} alt="bustixlogo" />
+        <div className="basis-full lg:basis-1/2 px-4 h-[100vh] ">
           <Card
             color="transparent"
             shadow={false}
-            className="w-full p-4 md:p-6"
+            className="w-full px-4 py-2 md:px-6 md:py-6"
           >
-            <Typography
+            <div>
+              <div className="flex items-center">
+                <img src={logo} alt="bustixlogo" className="h-24" />
+                <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgb(4,72,108)]">
+                  BusTix
+                </span>
+              </div>
+            </div>
+            {/* <Typography
               variant="h4"
               color="blue-gray"
               className="text-center max-w-xs mx-auto"
             >
               Welcome to Bustix
-            </Typography>
+            </Typography> */}
             <Typography
               color="gray"
-              className="mt-1 font-normal text-center max-w-xs mx-auto"
+              className="mt-1 text-[18px] font-bold text-center max-w-xs mx-auto"
             >
               Login To Continue
             </Typography>
