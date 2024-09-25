@@ -52,7 +52,7 @@ const LogIn = () => {
               <Link to={"/"}>
                 <div className="flex items-center">
                   <img src={logo} alt="bustixlogo" className="h-24 " />
-                  <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgba(4,72,108,0.94)]">
+                  <span className="ml-[-45px] mb-[-45px] text-[20px] font-semibold text-[rgba(4,72,108,0.94)]">
                     BusTix
                   </span>
                 </div>

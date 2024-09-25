@@ -218,10 +218,14 @@ const NavBar = () => {
             <Link to={"/login"}>
               <Button variant="text" size="sm" color="blue-gray">
                 {/* <UserCircleIcon /> */}
-                Log In 
+                Log In
               </Button>
             </Link>
-            <Button variant="gradient" size="sm" onClick={logout}>
+            <Button
+              className="bg-[rgba(4,72,108,0.94)]"
+              size="sm"
+              onClick={logout}
+            >
               Log Out
             </Button>
           </div>
@@ -233,7 +237,7 @@ const NavBar = () => {
               </Button>
             </Link>
             <Link to={"/signup"}>
-              <Button variant="gradient" size="sm">
+              <Button className="bg-[rgba(4,72,108,0.94)]" size="sm">
                 Sign Up
               </Button>
             </Link>
