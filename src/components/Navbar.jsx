@@ -203,8 +203,8 @@ const NavBar = () => {
         <div className="mr-4 cursor-pointer py-1.5 lg:ml-2">
           <Link to={"/"}>
             <div className="flex items-center">
-              <img src={logo} alt="bustixlogo" className="h-[90px] " />
-              <span className="ml-[-45px] mb-[-45px] text-[24px] font-semibold text-[rgba(4,72,108,0.94)]">
+              <img src={logo} alt="bustixlogo" className="h-[60px] " />
+              <span className="ml-[-30px] mb-[-30px] text-[14px] font-semibold text-[rgba(4,72,108,0.94)]">
                 BusTix
               </span>
             </div>
@@ -218,7 +218,7 @@ const NavBar = () => {
             <Link to={"/login"}>
               <Button variant="text" size="sm" color="blue-gray">
                 {/* <UserCircleIcon /> */}
-                Log In
+                Log In 
               </Button>
             </Link>
             <Button variant="gradient" size="sm" onClick={logout}>
@@ -258,7 +258,8 @@ const NavBar = () => {
           <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
             <Link to={"/login"}>
               <Button variant="text" size="sm" color="blue-gray">
-                <UserCircleIcon />
+                {/* <UserCircleIcon /> */}
+                Log In
               </Button>
             </Link>
             <Button variant="gradient" size="sm" onClick={logout}>
