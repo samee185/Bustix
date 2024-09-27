@@ -6,6 +6,7 @@ const Home = () => {
     <>
     <Navbar />
     <Hero />
+    <Cta />
     </>
   );
 }
