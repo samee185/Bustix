@@ -6,7 +6,7 @@ import {
 
 const CtaCard = ({icon, title, description}) => {
   return (
-    <Card className="mt-3 h-60 w-40 md:w-80 bg-gray-100 p-2 shadow-md shadow-gray-600 hover:">
+    <Card className="mt-3 h-60 w-40 md:w-80 bg-gray-100 p-2 shadow-md shadow-gray-600 transition transform hover:scale-x-95">
       <CardBody>
         <div className="mb-4 h-10 w-10 text-[rgba(4,72,108,0.94)] mx-auto">
           {icon}
