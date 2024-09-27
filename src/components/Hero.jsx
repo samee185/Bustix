@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import SearchCard from './SearchCard';
 const Hero = () => {
   return (
@@ -10,7 +10,7 @@ const Hero = () => {
             <br />
             Easy and Safely.
           </p>
-          <p className="text-[18px] md:text-[24px] text-[rgba(4,72,108,0.94)] font-bold">
+          <p className="text-[16px] md:text-[20px] md:mt-3 text-gray-800">
             Choose Your Ticket
           </p>
           <SearchCard />
