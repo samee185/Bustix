@@ -26,20 +26,30 @@ const Cta = () => {
               }
             />
           </Badge>
-          <CtaCard
-            icon={<TicketIcon />}
-            title={"Choose The Ticket"}
-            description={
-              "Choose your origin, destination,Just choose a Bus journey dates and search for buses"
-            }
-          />
-          <CtaCard
-            icon={<BanknotesIcon />}
-            title={"Make Payment"}
-            description={
-              "Choose your origin, destination,Just choose a Bus journey dates and search for buses"
-            }
-          />
+          <Badge
+            content={"2"}
+            className="bg-gradient-to-tr from-[rgba(4,72,108,0.94)] to-[rgba(4,72,108,0.94)] border-2 border-white shadow-lg shadow-black/20"
+          >
+            <CtaCard
+              icon={<TicketIcon />}
+              title={"Choose The Ticket"}
+              description={
+                "Choose your origin, destination,Just choose a Bus journey dates and search for buses"
+              }
+            />
+          </Badge>
+          <Badge
+            content={"3"}
+            className="bg-gradient-to-tr from-[rgba(4,72,108,0.94)] to-[rgba(4,72,108,0.94)] border-2 border-white shadow-lg shadow-black/20"
+          >
+            <CtaCard
+              icon={<BanknotesIcon />}
+              title={"Make Payment"}
+              description={
+                "Choose your origin, destination,Just choose a Bus journey dates and search for buses"
+              }
+            />
+          </Badge>
         </div>
       </div>
     </>
