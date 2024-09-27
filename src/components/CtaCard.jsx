@@ -12,9 +12,7 @@ const CtaCard = ({icon, title, description}) => {
           {icon}
         </div>
         <Typography
-          variant="h5"
-          color="blue-gray"
-          className="mb-2 text-xl text-center md:text-2xl text-gray-900"
+          className="mb-2 text-xl text-center md:text-2xl text-gray-800 font-bold"
         >
           {title}
         </Typography>
