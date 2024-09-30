@@ -33,12 +33,12 @@ const Testimonials = () => {
         >
           The heartfelt testimonials of our community
         </Typography>
-        <Typography
-          className="max-w-3xl !text-gray-500 mb-10 lg:mb- text-center"
+        <p
+          className=" !text-gray-500 mb-10 lg:mb-20 !text-center"
         >
           From life-enhancing gadgets to unparalleled customer support, and
           transformative learning opportunities.
-        </Typography>
+        </p>
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-2">
           {testimonials.map((props, key) => (
             <TestimonialCard key={key} {...props} />
