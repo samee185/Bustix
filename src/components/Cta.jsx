@@ -2,6 +2,7 @@ import React from 'react'
 import CtaCard from './CtaCard';
 import { MagnifyingGlassIcon, TicketIcon, BanknotesIcon } from '@heroicons/react/24/solid';
 import { Badge } from "@material-tailwind/react";
+import Amenities from './Amenities';
 const Cta = () => {
   return (
     <>
@@ -50,6 +51,9 @@ const Cta = () => {
               }
             />
           </Badge>
+        </div>
+        <div className="mt-4">
+          <Amenities />
         </div>
       </div>
     </>
