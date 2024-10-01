@@ -47,9 +47,9 @@ const Testimonials = () => {
 
         <Card
           shadow={false}
-          className="mt-8 bg-gray-100/50 text-center rounded-2xl p-6"
+          className="mt-8 bg-gray-200 text-center rounded-2xl p-7"
         >
-          <CardHeader color="transparent" floated={false} shadow={false}>
+          <CardHeader color="transparent" floated={false} shadow={false}>  
             <Typography
               color="blue-gray"
               className="mb-4 !text-2xl lg:!text-3xl max-w-4xl !leading-snug mx-auto font-bold"

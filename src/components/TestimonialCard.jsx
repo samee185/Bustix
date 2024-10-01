@@ -8,7 +8,7 @@ import {
 
 const TestimonialCard = ({ img, client, title, clientInfo }) => {
   return (
-    <Card shadow={false} className="bg-gray-100/50 rounded-2xl p-6">
+    <Card shadow={false} className="bg-gray-200 rounded-2xl p-6">
       <CardHeader color="transparent" floated={false} shadow={false}>
         <Typography
           color="blue-gray"
